@@ -6,6 +6,7 @@ import "./App.css";
 
 import GetData from "./components/GetData";
 import Posts from "./components/Posts";
+import Put from "./components/Put";
 
 const apiEndPoint = "https://api-o0p6.onrender.com/api/user";
 
@@ -16,20 +17,10 @@ function App() {
     axiox.get(apiEndPoint).then(({ data }) => setPosts(data.data));
   }, []);
 
-  const handleAdd = () => {
-    const obj = {
-      first_name: "werkt",
-      last_name: "dit",
-      login: "of",
-      password: "niet",
-    };
-
-    axiox.post(apiEndPoint, obj).then(({ data }) => setPosts([...posts, data]));
-  };
-
   return (
     <>
       <Posts />
+      <Put />
       <GetData posts={posts} />
     </>
   );
